@@ -1,0 +1,37 @@
+name: sat_env_minimal
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  # Core Python
+  - python=3.7.13
+  
+  # PyTorch ecosystem (exact versions for SatMAE)
+  - pytorch=1.11.0=py3.7_cuda11.3_cudnn8.2.0_0
+  - torchvision=0.12.0=py37_cu113
+  - cudatoolkit=11.3.1=h2bc3f7f_2
+  
+  # Essential ML packages
+  - timm=0.3.2=pyhd8ed1ab_0
+  - numpy=1.21.2=py37h20f2e39_0
+  - scipy=1.7.3=py37hc147768_0
+  
+  # Data handling
+  - rasterio=1.1.0=py37h41e4f33_0
+  - pandas=1.3.4=py37h8c16a72_0
+  - pillow=9.0.1=py37h22f2fdc_0
+  
+  # Training utilities
+  - tqdm=4.63.0=pyhd3eb1b0_0
+  - pyyaml=6.0=pyh06a4308_0
+  
+  # Monitoring (optional but useful)
+  - tensorboard=2.6.0=py_1
+  
+  # System packages
+  - pip=21.2.2=py37h06a4308_0
+  
+  # pip dependencies (minimal)
+  - pip:
+    - wandb==0.12.14  # for experiment tracking (optional)
