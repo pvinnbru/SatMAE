@@ -1,3 +1,42 @@
+# Advanced Methods of Machine Learning
+
+This repository contains code for experiments based on the SatMAE paper. The original README is included below.
+
+## Downstream Task: Land Use and Land Cover Classification
+
+**Goal:**  
+Measure how model performance improves as the training data size increases.  
+To ensure fair and meaningful comparisons across runs, the validation set remains fixed.
+
+**Dataset:**  
+- **EuroSAT** (Helber et al., 2018, 2019)  
+    - ~3GB, 13 spectral bands  
+    - 10 classes  
+    - 27,000 labeled images
+
+## Repository Structure
+
+- **`code_piet/`**  
+    Contains code for data loading, fine-tuning, and data analysis developed for this course.
+
+- **`data/`**  
+    Contains the EuroSAT dataset.
+
+- **`data_splits/`**  
+    Contains paths to images and their labels as expected by SatMAE's EuroSAT class.  
+    - 80/20 split between training and validation.  
+    - Different percentages of training data are randomly selected to assess performance at various data sizes.  
+    - Naming convention: `eurosat_[rgb|ms]_<split_size>` (if `<split_size>` is not specified, the data is 100%).
+
+- **`checkpoint/`**  
+    Contains the SatMAE model checkpoint used.
+
+---
+
+The following is the original README:
+
+
+
 # SatMAE (NeurIPS 2022)
 **[Project](https://sustainlab-group.github.io/SatMAE/)** | 
 **[Paper](https://arxiv.org/abs/2207.08051)** | 
