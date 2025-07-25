@@ -1,0 +1,493 @@
+[200~pvinnbru@jupyter-0d2f684427d8cf5f058816c5e6b17013-uni-muenster-de:~/SatMAE$ ./setup_environment.sh 
+SatMAE Environment Setup
+========================
+Checking available disk space...
+Filesystem                                                                                                      Size  Used Avail Use% Mounted on
+ceph-mon.ceph.svc.kubernetes.os.wwu.de:6789:/usershare/ec_bronze/_nogroup/379afcd1-34e3-44bb-a047-75ad65d6b66b  9.8T  5.4T  4.5T  55% /home
+
+Checking for CUDA/GPU availability...
+GPU detected:
+NVIDIA A40-12Q, 12288 MiB
+
+Creating virtual environment...
+Upgrading pip...
+Requirement already satisfied: pip in ./satmae_env/lib/python3.10/site-packages (23.0.1)
+Collecting pip
+  Downloading pip-25.1.1-py3-none-any.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 11.6 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+Successfully installed pip-25.1.1
+
+Installing GPU version (CUDA 11.3)...
+Looking in links: https://download.pytorch.org/whl/torch_stable.html
+Collecting torch==1.11.0+cu113
+  Downloading https://download.pytorch.org/whl/cu113/torch-1.11.0%2Bcu113-cp310-cp310-linux_x86_64.whl (1637.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 GB 37.9 MB/s eta 0:00:00
+Collecting torchvision==0.12.0+cu113
+  Downloading https://download.pytorch.org/whl/cu113/torchvision-0.12.0%2Bcu113-cp310-cp310-linux_x86_64.whl (22.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 22.3/22.3 MB 35.3 MB/s eta 0:00:00
+Collecting typing-extensions (from torch==1.11.0+cu113)
+  Downloading typing_extensions-4.14.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting numpy (from torchvision==0.12.0+cu113)
+  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting requests (from torchvision==0.12.0+cu113)
+  Downloading requests-2.32.4-py3-none-any.whl.metadata (4.9 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.12.0+cu113)
+  Downloading pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+Collecting charset_normalizer<4,>=2 (from requests->torchvision==0.12.0+cu113)
+  Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
+Collecting idna<4,>=2.5 (from requests->torchvision==0.12.0+cu113)
+  Downloading idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3<3,>=1.21.1 (from requests->torchvision==0.12.0+cu113)
+  Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi>=2017.4.17 (from requests->torchvision==0.12.0+cu113)
+  Downloading certifi-2025.7.14-py3-none-any.whl.metadata (2.4 kB)
+Downloading pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 29.1 MB/s eta 0:00:00
+Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 44.8 MB/s eta 0:00:00
+Downloading requests-2.32.4-py3-none-any.whl (64 kB)
+Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (149 kB)
+Downloading idna-3.10-py3-none-any.whl (70 kB)
+Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+Downloading certifi-2025.7.14-py3-none-any.whl (162 kB)
+Downloading typing_extensions-4.14.1-py3-none-any.whl (43 kB)
+Installing collected packages: urllib3, typing-extensions, pillow, numpy, idna, charset_normalizer, certifi, torch, requests, torchvision
+Successfully installed certifi-2025.7.14 charset_normalizer-3.4.2 idna-3.10 numpy-2.2.6 pillow-11.3.0 requests-2.32.4 torch-1.11.0+cu113 torchvision-0.12.0+cu113 typing-extensions-4.14.1 urllib3-2.5.0
+Collecting timm==0.3.2 (from -r requirements_gpu.txt (line 8))
+  Downloading timm-0.3.2-py3-none-any.whl.metadata (19 kB)
+Collecting numpy<1.22.0,>=1.20.0 (from -r requirements_gpu.txt (line 9))
+  Downloading numpy-1.21.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting pandas<1.4.0,>=1.3.0 (from -r requirements_gpu.txt (line 10))
+  Downloading pandas-1.3.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting pillow<10.0.0,>=9.0.0 (from -r requirements_gpu.txt (line 11))
+  Downloading Pillow-9.5.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+Collecting rasterio<1.3.0,>=1.1.0 (from -r requirements_gpu.txt (line 12))
+  Downloading rasterio-1.2.10.tar.gz (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 15.5 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Collecting tqdm>=4.60.0 (from -r requirements_gpu.txt (line 13))
+  Downloading tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
+Collecting pyyaml>=6.0 (from -r requirements_gpu.txt (line 14))
+  Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+Collecting wandb>=0.12.0 (from -r requirements_gpu.txt (line 15))
+  Downloading wandb-0.21.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
+Collecting tensorboard>=2.6.0 (from -r requirements_gpu.txt (line 16))
+  Downloading tensorboard-2.20.0-py3-none-any.whl.metadata (1.8 kB)
+Requirement already satisfied: torch>=1.0 in ./satmae_env/lib/python3.10/site-packages (from timm==0.3.2->-r requirements_gpu.txt (line 8)) (1.11.0+cu113)
+Requirement already satisfied: torchvision in ./satmae_env/lib/python3.10/site-packages (from timm==0.3.2->-r requirements_gpu.txt (line 8)) (0.12.0+cu113)
+Collecting python-dateutil>=2.7.3 (from pandas<1.4.0,>=1.3.0->-r requirements_gpu.txt (line 10))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2017.3 (from pandas<1.4.0,>=1.3.0->-r requirements_gpu.txt (line 10))
+  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting affine (from rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12))
+  Downloading affine-2.4.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting attrs (from rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12))
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: certifi in ./satmae_env/lib/python3.10/site-packages (from rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12)) (2025.7.14)
+Collecting click>=4.0 (from rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12))
+  Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
+Collecting cligj>=0.5 (from rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12))
+  Downloading cligj-0.7.2-py3-none-any.whl.metadata (5.0 kB)
+Collecting snuggs>=1.4.1 (from rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12))
+  Downloading snuggs-1.4.7-py3-none-any.whl.metadata (3.4 kB)
+Collecting click-plugins (from rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12))
+  Downloading click_plugins-1.1.1.2-py2.py3-none-any.whl.metadata (6.5 kB)
+Requirement already satisfied: setuptools in ./satmae_env/lib/python3.10/site-packages (from rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12)) (65.5.0)
+Collecting gitpython!=3.1.29,>=1.0.0 (from wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading gitpython-3.1.45-py3-none-any.whl.metadata (13 kB)
+Collecting packaging (from wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting platformdirs (from wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading platformdirs-4.3.8-py3-none-any.whl.metadata (12 kB)
+Collecting protobuf!=4.21.0,!=5.28.0,<7,>=3.19.0 (from wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+Collecting pydantic<3 (from wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading pydantic-2.11.7-py3-none-any.whl.metadata (67 kB)
+Requirement already satisfied: requests<3,>=2.0.0 in ./satmae_env/lib/python3.10/site-packages (from wandb>=0.12.0->-r requirements_gpu.txt (line 15)) (2.32.4)
+Collecting sentry-sdk>=2.0.0 (from wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading sentry_sdk-2.33.2-py2.py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: typing-extensions<5,>=4.8 in ./satmae_env/lib/python3.10/site-packages (from wandb>=0.12.0->-r requirements_gpu.txt (line 15)) (4.14.1)
+Collecting annotated-types>=0.6.0 (from pydantic<3->wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.33.2 (from pydantic<3->wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
+Collecting typing-inspection>=0.4.0 (from pydantic<3->wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading typing_inspection-0.4.1-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./satmae_env/lib/python3.10/site-packages (from requests<3,>=2.0.0->wandb>=0.12.0->-r requirements_gpu.txt (line 15)) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in ./satmae_env/lib/python3.10/site-packages (from requests<3,>=2.0.0->wandb>=0.12.0->-r requirements_gpu.txt (line 15)) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in ./satmae_env/lib/python3.10/site-packages (from requests<3,>=2.0.0->wandb>=0.12.0->-r requirements_gpu.txt (line 15)) (2.5.0)
+Collecting absl-py>=0.4 (from tensorboard>=2.6.0->-r requirements_gpu.txt (line 16))
+  Downloading absl_py-2.3.1-py3-none-any.whl.metadata (3.3 kB)
+Collecting grpcio>=1.48.2 (from tensorboard>=2.6.0->-r requirements_gpu.txt (line 16))
+  Downloading grpcio-1.74.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
+Collecting markdown>=2.6.8 (from tensorboard>=2.6.0->-r requirements_gpu.txt (line 16))
+  Downloading markdown-3.8.2-py3-none-any.whl.metadata (5.1 kB)
+Collecting tensorboard-data-server<0.8.0,>=0.7.0 (from tensorboard>=2.6.0->-r requirements_gpu.txt (line 16))
+  Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl.metadata (1.1 kB)
+Collecting werkzeug>=1.0.1 (from tensorboard>=2.6.0->-r requirements_gpu.txt (line 16))
+  Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.29,>=1.0.0->wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb>=0.12.0->-r requirements_gpu.txt (line 15))
+  Downloading smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+Collecting six>=1.5 (from python-dateutil>=2.7.3->pandas<1.4.0,>=1.3.0->-r requirements_gpu.txt (line 10))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting pyparsing>=2.1.6 (from snuggs>=1.4.1->rasterio<1.3.0,>=1.1.0->-r requirements_gpu.txt (line 12))
+  Downloading pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+Collecting MarkupSafe>=2.1.1 (from werkzeug>=1.0.1->tensorboard>=2.6.0->-r requirements_gpu.txt (line 16))
+  Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Downloading timm-0.3.2-py3-none-any.whl (244 kB)
+Using cached numpy-1.21.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (15.9 MB)
+Downloading pandas-1.3.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.5/11.5 MB 43.0 MB/s eta 0:00:00
+Downloading Pillow-9.5.0-cp310-cp310-manylinux_2_28_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 19.3 MB/s eta 0:00:00
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 240.4 kB/s eta 0:00:00
+Downloading wandb-0.21.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (22.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 22.2/22.2 MB 58.1 MB/s eta 0:00:00
+Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl (321 kB)
+Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 14.1 MB/s eta 0:00:00
+Downloading tensorboard-2.20.0-py3-none-any.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 15.4 MB/s eta 0:00:00
+Downloading tensorboard_data_server-0.7.2-py3-none-manylinux_2_31_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 8.2 MB/s eta 0:00:00
+Downloading absl_py-2.3.1-py3-none-any.whl (135 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading click-8.2.1-py3-none-any.whl (102 kB)
+Downloading cligj-0.7.2-py3-none-any.whl (7.1 kB)
+Downloading gitpython-3.1.45-py3-none-any.whl (208 kB)
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+Downloading grpcio-1.74.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 26.2 MB/s eta 0:00:00
+Downloading markdown-3.8.2-py3-none-any.whl (106 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+Downloading sentry_sdk-2.33.2-py2.py3-none-any.whl (356 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading snuggs-1.4.7-py3-none-any.whl (5.4 kB)
+Downloading pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Downloading affine-2.4.0-py3-none-any.whl (15 kB)
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+Downloading click_plugins-1.1.1.2-py2.py3-none-any.whl (11 kB)
+Downloading packaging-25.0-py3-none-any.whl (66 kB)
+Downloading platformdirs-4.3.8-py3-none-any.whl (18 kB)
+Building wheels for collected packages: rasterio
+  Building wheel for rasterio (pyproject.toml) ... error
+  error: subprocess-exited-with-error
+  
+  × Building wheel for rasterio (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [288 lines of output]
+      INFO:root:GDAL API version obtained from gdal-config: 3.8.1
+      /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      ./setup_environment.sh 
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved :: BSD License
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      ./setup_environment.sh 
+        self._finalize_license_expression()
+      INFO:root:running bdist_wheel
+      INFO:root:running build
+      INFO:root:running build_py
+      INFO:root:creating build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/__init__.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/control.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/coords.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/crs.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/drivers.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/dtypes.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/enums.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/env.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/errors.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/features.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/fill.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/io.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/mask.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/merge.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/path.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/plot.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/profiles.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/rpc.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/sample.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/session.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/tools.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/transform.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/vrt.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/warp.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:copying ./rasterio/windows.py -> build/lib.linux-x86_64-cpython-310/rasterio
+      INFO:root:creating build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/__init__.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/blocks.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/bounds.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/calc.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/clip.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/convert.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/edit_info.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/env.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/gcps.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/helpers.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/info.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/insp.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/main.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/mask.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/merge.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/options.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/overview.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/rasterize.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/rm.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/sample.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/shapes.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/stack.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/transform.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:copying ./rasterio/rio/warp.py -> build/lib.linux-x86_64-cpython-310/rasterio/rio
+      INFO:root:running egg_info
+      INFO:root:writing rasterio.egg-info/PKG-INFO
+      INFO:root:writing dependency_links to rasterio.egg-info/dependency_links.txt
+      INFO:root:writing entry points to rasterio.egg-info/entry_points.txt
+      INFO:root:writing requirements to rasterio.egg-info/requires.txt
+      INFO:root:writing top-level names to rasterio.egg-info/top_level.txt
+      INFO:root:reading manifest file 'rasterio.egg-info/SOURCES.txt'
+      INFO:root:adding license file 'LICENSE.txt'
+      INFO:root:adding license file 'AUTHORS.txt'
+      INFO:root:writing manifest file 'rasterio.egg-info/SOURCES.txt'
+      INFO:root:running build_ext
+      INFO:root:building 'rasterio._base' extension
+      INFO:root:creating build/temp.linux-x86_64-cpython-310/rasterio
+      INFO:root:gcc -pthread -B /opt/conda/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /opt/conda/include -fPIC -O2 -isystem /opt/conda/include -fPIC -I/tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include -I/opt/conda/include -I/home/p/pvinnbru/SatMAE/satmae_env/include -I/opt/conda/include/python3.10 -c rasterio/_base.c -o build/temp.linux-x86_64-cpython-310/rasterio/_base.o -Wno-unused-parameter -Wno-unused-function
+      rasterio/_base.c: In function ‘__pyx_pf_8rasterio_5_base_12_raster_driver_extensions’:
+      rasterio/_base.c:4675:26: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+       4675 |     __pyx_v_c_drivername = __pyx_f_8rasterio_5_base_get_driver_name(__pyx_v_driver);
+            |                          ^
+      rasterio/_base.c:4750:26: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+       4750 |     __pyx_v_c_extensions = GDALGetMetadataItem(__pyx_v_driver, ((char const *)DMD_EXTENSIONS), NULL);
+            |                          ^
+      rasterio/_base.c: In function ‘__pyx_pf_8rasterio_5_base_11DatasetBase_48block_size’:
+      rasterio/_base.c:13232:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+      13232 |   __pyx_v_value = GDALGetMetadataItem(__pyx_v_obj, __pyx_v_key_c, ((char const *)TIFF));
+            |                 ^
+      rasterio/_base.c: In function ‘__pyx_pf_8rasterio_5_base_11DatasetBase_59tag_namespaces’:
+      rasterio/_base.c:17648:9: warning: ‘_PyUnicode_get_wstr_length’ is deprecated [-Wdeprecated-declarations]
+      17648 |         __pyx_t_2 = (__Pyx_PyUnicode_IS_TRUE(__pyx_t_9) != 0);
+            |         ^~~~~~~~~
+      In file included from /opt/conda/include/python3.10/unicodeobject.h:1046,
+                       from /opt/conda/include/python3.10/Python.h:83,
+                       from rasterio/_base.c:42:
+      /opt/conda/include/python3.10/cpython/unicodeobject.h:446:26: note: declared here
+        446 | static inline Py_ssize_t _PyUnicode_get_wstr_length(PyObject *op) {
+            |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      rasterio/_base.c:17648:9: warning: ‘PyUnicode_AsUnicode’ is deprecated [-Wdeprecated-declarations]
+      17648 |         __pyx_t_2 = (__Pyx_PyUnicode_IS_TRUE(__pyx_t_9) != 0);
+            |         ^~~~~~~~~
+      In file included from /opt/conda/include/python3.10/unicodeobject.h:1046,
+                       from /opt/conda/include/python3.10/Python.h:83,
+                       from rasterio/_base.c:42:
+      /opt/conda/include/python3.10/cpython/unicodeobject.h:580:45: note: declared here
+        580 | Py_DEPRECATED(3.3) PyAPI_FUNC(Py_UNICODE *) PyUnicode_AsUnicode(
+            |                                             ^~~~~~~~~~~~~~~~~~~
+      rasterio/_base.c:17648:9: warning: ‘_PyUnicode_get_wstr_length’ is deprecated [-Wdeprecated-declarations]
+      17648 |         __pyx_t_2 = (__Pyx_PyUnicode_IS_TRUE(__pyx_t_9) != 0);
+            |         ^~~~~~~~~
+      In file included from /opt/conda/include/python3.10/unicodeobject.h:1046,
+                       from /opt/conda/include/python3.10/Python.h:83,
+                       from rasterio/_base.c:42:
+      /opt/conda/include/python3.10/cpython/unicodeobject.h:446:26: note: declared here
+        446 | static inline Py_ssize_t _PyUnicode_get_wstr_length(PyObject *op) {
+            |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      rasterio/_base.c: In function ‘__pyx_pf_8rasterio_5_base_11DatasetBase_61tags’:
+      rasterio/_base.c:18095:23: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+      18095 |           __pyx_v_val = CPLParseNameValue((__pyx_v_metadata[__pyx_v_i]), (&__pyx_v_key));
+            |                       ^
+      rasterio/_base.c: In function ‘__pyx_pf_8rasterio_5_base_11DatasetBase_63get_tag_item’:
+      rasterio/_base.c:18839:17: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+      18839 |   __pyx_v_value = GDALGetMetadataItem(__pyx_v_obj, __pyx_v_name, __pyx_v_domain);
+            |                 ^
+      rasterio/_base.c: In function ‘__Pyx_Coroutine_Send’:
+      rasterio/_base.c:48560:19: warning: implicit declaration of function ‘_PyGen_Send’; did you mean ‘_PyGen_yf’? [-Wimplicit-function-declaration]
+      48560 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                   ^~~~~~~~~~~
+            |                   _PyGen_yf
+      rasterio/_base.c:48560:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      48560 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                 ^
+      rasterio/_base.c:48565:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      48565 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                 ^
+      rasterio/_base.c: In function ‘__Pyx_Generator_Next’:
+      rasterio/_base.c:48649:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      48649 |             ret = _PyGen_Send((PyGenObject*)yf, NULL);
+            |                 ^
+      INFO:root:gcc -pthread -B /opt/conda/compiler_compat -shared -Wl,--allow-shlib-undefined -Wl,-rpath,/opt/conda/lib -Wl,-rpath-link,/opt/conda/lib -L/opt/conda/lib -Wl,--allow-shlib-undefined -Wl,-rpath,/opt/conda/lib -Wl,-rpath-link,/opt/conda/lib -L/opt/conda/lib build/temp.linux-x86_64-cpython-310/rasterio/_base.o -L/opt/conda/lib -lgdal -o build/lib.linux-x86_64-cpython-310/rasterio/_base.cpython-310-x86_64-linux-gnu.so
+      INFO:root:building 'rasterio._io' extension
+      INFO:root:gcc -pthread -B /opt/conda/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /opt/conda/include -fPIC -O2 -isystem /opt/conda/include -fPIC -I/tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include -I/opt/conda/include -I/home/p/pvinnbru/SatMAE/satmae_env/include -I/opt/conda/include/python3.10 -c rasterio/_io.c -o build/temp.linux-x86_64-cpython-310/rasterio/_io.o -Wno-unused-parameter -Wno-unused-function
+      In file included from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/ndarraytypes.h:1969,
+                       from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/ndarrayobject.h:12,
+                       from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                       from rasterio/_io.c:664:
+      /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning Using deprecated NumPy API, disable it with  #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION [-Wcpp]
+         17 | #warning Using deprecated NumPy API, disable it with              |  ^~~~~~~
+      rasterio/_io.c: In function ‘__pyx_pf_8rasterio_3_io_14InMemoryRaster_2__init__’:
+      rasterio/_io.c:29376:45: warning: passing argument 2 of ‘OSRExportToWkt’ from incompatible pointer type [-Wincompatible-pointer-types]
+      29376 |         (void)(OSRExportToWkt(__pyx_v_osr, (&__pyx_v_srcwkt)));
+            |                                            ~^~~~~~~~~~~~~~~~
+            |                                             |
+            |                                             const char **
+      In file included from rasterio/_io.c:658:
+      /opt/conda/include/ogr_srs_api.h:497:65: note: expected ‘char **’ but argument is of type ‘const char **’
+        497 | OGRErr CPL_DLL CPL_STDCALL OSRExportToWkt(OGRSpatialReferenceH, char **);
+            |                                                                 ^~~~~~~
+      rasterio/_io.c:29460:19: warning: passing argument 1 of ‘VSIFree’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+      29460 |           CPLFree(__pyx_v_srcwkt);
+            |                   ^~~~~~~~~~~~~~
+      In file included from /opt/conda/include/cpl_conv.h:36,
+                       from rasterio/_io.c:653:
+      /opt/conda/include/cpl_vsi.h:291:22: note: expected ‘void *’ but argument is of type ‘const char *’
+        291 | void CPL_DLL VSIFree(void *);
+            |                      ^~~~~~
+      rasterio/_io.c:29503:21: warning: passing argument 1 of ‘VSIFree’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+      29503 |             CPLFree(__pyx_v_srcwkt);
+            |                     ^~~~~~~~~~~~~~
+      In file included from /opt/conda/include/cpl_conv.h:36,
+                       from rasterio/_io.c:653:
+      /opt/conda/include/cpl_vsi.h:291:22: note: expected ‘void *’ but argument is of type ‘const char *’
+        291 | void CPL_DLL VSIFree(void *);
+            |                      ^~~~~~
+      rasterio/_io.c:29802:43: warning: passing argument 2 of ‘OSRExportToWkt’ from incompatible pointer type [-Wincompatible-pointer-types]
+      29802 |       (void)(OSRExportToWkt(__pyx_v_osr, (&__pyx_v_srcwkt)));
+            |                                          ~^~~~~~~~~~~~~~~~
+            |                                           |
+            |                                           const char **
+      In file included from rasterio/_io.c:658:
+      /opt/conda/include/ogr_srs_api.h:497:65: note: expected ‘char **’ but argument is of type ‘const char **’
+        497 | OGRErr CPL_DLL CPL_STDCALL OSRExportToWkt(OGRSpatialReferenceH, char **);
+            |                                                                 ^~~~~~~
+      rasterio/_io.c:29833:17: warning: passing argument 1 of ‘VSIFree’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+      29833 |         CPLFree(__pyx_v_srcwkt);
+            |                 ^~~~~~~~~~~~~~
+      In file included from /opt/conda/include/cpl_conv.h:36,
+                       from rasterio/_io.c:653:
+      /opt/conda/include/cpl_vsi.h:291:22: note: expected ‘void *’ but argument is of type ‘const char *’
+        291 | void CPL_DLL VSIFree(void *);
+            |                      ^~~~~~
+      rasterio/_io.c:29885:19: warning: passing argument 1 of ‘VSIFree’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+      29885 |           CPLFree(__pyx_v_srcwkt);
+            |                   ^~~~~~~~~~~~~~
+      In file included from /opt/conda/include/cpl_conv.h:36,
+                       from rasterio/_io.c:653:
+      /opt/conda/include/cpl_vsi.h:291:22: note: expected ‘void *’ but argument is of type ‘const char *’
+        291 | void CPL_DLL VSIFree(void *);
+            |                      ^~~~~~
+      rasterio/_io.c: In function ‘__Pyx_Coroutine_Send’:
+      rasterio/_io.c:61041:19: warning: implicit declaration of function ‘_PyGen_Send’; did you mean ‘_PyGen_yf’? [-Wimplicit-function-declaration]
+      61041 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                   ^~~~~~~~~~~
+            |                   _PyGen_yf
+      rasterio/_io.c:61041:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      61041 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                 ^
+      rasterio/_io.c:61046:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      61046 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                 ^
+      rasterio/_io.c: In function ‘__Pyx_Generator_Next’:
+      rasterio/_io.c:61130:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      61130 |             ret = _PyGen_Send((PyGenObject*)yf, NULL);
+            |                 ^
+      INFO:root:gcc -pthread -B /opt/conda/compiler_compat -shared -Wl,--allow-shlib-undefined -Wl,-rpath,/opt/conda/lib -Wl,-rpath-link,/opt/conda/lib -L/opt/conda/lib -Wl,--allow-shlib-undefined -Wl,-rpath,/opt/conda/lib -Wl,-rpath-link,/opt/conda/lib -L/opt/conda/lib build/temp.linux-x86_64-cpython-310/rasterio/_io.o -L/opt/conda/lib -lgdal -o build/lib.linux-x86_64-cpython-310/rasterio/_io.cpython-310-x86_64-linux-gnu.so
+      INFO:root:building 'rasterio._features' extension
+      INFO:root:gcc -pthread -B /opt/conda/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /opt/conda/include -fPIC -O2 -isystem /opt/conda/include -fPIC -I/tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include -I/opt/conda/include -I/home/p/pvinnbru/SatMAE/satmae_env/include -I/opt/conda/include/python3.10 -c rasterio/_features.c -o build/temp.linux-x86_64-cpython-310/rasterio/_features.o -Wno-unused-parameter -Wno-unused-function
+      In file included from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/ndarraytypes.h:1969,
+                       from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/ndarrayobject.h:12,
+                       from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                       from rasterio/_features.c:664:
+      /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning Using deprecated NumPy API, disable it with  #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION [-Wcpp]
+         17 | #warning Using deprecated NumPy API, disable it with              |  ^~~~~~~
+      rasterio/_features.c: In function ‘__Pyx_Coroutine_Send’:
+      rasterio/_features.c:21831:19: warning: implicit declaration of function ‘_PyGen_Send’; did you mean ‘_PyGen_yf’? [-Wimplicit-function-declaration]
+      21831 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                   ^~~~~~~~~~~
+            |                   _PyGen_yf
+      rasterio/_features.c:21831:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      21831 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                 ^
+      rasterio/_features.c:21836:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      21836 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                 ^
+      rasterio/_features.c: In function ‘__Pyx_Generator_Next’:
+      rasterio/_features.c:21920:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      21920 |             ret = _PyGen_Send((PyGenObject*)yf, NULL);
+            |                 ^
+      INFO:root:gcc -pthread -B /opt/conda/compiler_compat -shared -Wl,--allow-shlib-undefined -Wl,-rpath,/opt/conda/lib -Wl,-rpath-link,/opt/conda/lib -L/opt/conda/lib -Wl,--allow-shlib-undefined -Wl,-rpath,/opt/conda/lib -Wl,-rpath-link,/opt/conda/lib -L/opt/conda/lib build/temp.linux-x86_64-cpython-310/rasterio/_features.o -L/opt/conda/lib -lgdal -o build/lib.linux-x86_64-cpython-310/rasterio/_features.cpython-310-x86_64-linux-gnu.so
+      INFO:root:building 'rasterio._env' extension
+      INFO:root:gcc -pthread -B /opt/conda/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /opt/conda/include -fPIC -O2 -isystem /opt/conda/include -fPIC -I/tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include -I/opt/conda/include -I/home/p/pvinnbru/SatMAE/satmae_env/include -I/opt/conda/include/python3.10 -c rasterio/_env.c -o build/temp.linux-x86_64-cpython-310/rasterio/_env.o -Wno-unused-parameter -Wno-unused-function
+      rasterio/_env.c: In function ‘__Pyx_Coroutine_Send’:
+      rasterio/_env.c:32335:19: warning: implicit declaration of function ‘_PyGen_Send’; did you mean ‘_PyGen_yf’? [-Wimplicit-function-declaration]
+      32335 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                   ^~~~~~~~~~~
+            |                   _PyGen_yf
+      rasterio/_env.c:32335:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      32335 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                 ^
+      rasterio/_env.c:32340:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      32340 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                 ^
+      rasterio/_env.c: In function ‘__Pyx_Generator_Next’:
+      rasterio/_env.c:32424:17: warning: assignment to ‘PyObject *’ {aka ‘struct _object *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+      32424 |             ret = _PyGen_Send((PyGenObject*)yf, NULL);
+            |                 ^
+      INFO:root:gcc -pthread -B /opt/conda/compiler_compat -shared -Wl,--allow-shlib-undefined -Wl,-rpath,/opt/conda/lib -Wl,-rpath-link,/opt/conda/lib -L/opt/conda/lib -Wl,--allow-shlib-undefined -Wl,-rpath,/opt/conda/lib -Wl,-rpath-link,/opt/conda/lib -L/opt/conda/lib build/temp.linux-x86_64-cpython-310/rasterio/_env.o -L/opt/conda/lib -lgdal -o build/lib.linux-x86_64-cpython-310/rasterio/_env.cpython-310-x86_64-linux-gnu.so
+      INFO:root:building 'rasterio._warp' extension
+      INFO:root:g++ -pthread -B /opt/conda/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /opt/conda/include -fPIC -O2 -isystem /opt/conda/include -fPIC -I/tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include -I/opt/conda/include -I/home/p/pvinnbru/SatMAE/satmae_env/include -I/opt/conda/include/python3.10 -c rasterio/_warp.cpp -o build/temp.linux-x86_64-cpython-310/rasterio/_warp.o -Wno-unused-parameter -Wno-unused-function -std=c++11
+      In file included from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/ndarraytypes.h:1969,
+                       from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/ndarrayobject.h:12,
+                       from /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/arrayobject.h:4,
+                       from rasterio/_warp.cpp:682:
+      /tmp/pip-build-env-mf86n76g/overlay/lib/python3.10/site-packages/numpy/core/include/numpy/npy_1_7_deprecated_api.h:17:2: warning: #warning Using deprecated NumPy API, disable it with  #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION [-Wcpp]
+         17 | #warning Using deprecated NumPy API, disable it with              |  ^~~~~~~
+      rasterio/_warp.cpp: In function ‘PyObject* __Pyx_Coroutine_Send(PyObject*, PyObject*)’:
+      rasterio/_warp.cpp:43950:19: error: ‘_PyGen_Send’ was not declared in this scope; did you mean ‘_PyGen_yf’?
+      43950 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                   ^~~~~~~~~~~
+            |                   _PyGen_yf
+      rasterio/_warp.cpp:43955:19: error: ‘_PyGen_Send’ was not declared in this scope; did you mean ‘_PyGen_yf’?
+      43955 |             ret = _PyGen_Send((PyGenObject*)yf, value == Py_None ? NULL : value);
+            |                   ^~~~~~~~~~~
+            |                   _PyGen_yf
+      rasterio/_warp.cpp: In function ‘PyObject* __Pyx_Generator_Next(PyObject*)’:
+      rasterio/_warp.cpp:44039:19: error: ‘_PyGen_Send’ was not declared in this scope; did you mean ‘_PyGen_yf’?
+      44039 |             ret = _PyGen_Send((PyGenObject*)yf, NULL);
+            |                   ^~~~~~~~~~~
+            |                   _PyGen_yf
+      error: command '/usr/bin/g++' failed with exit code 1
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for rasterio
+Failed to build rasterio
+ERROR: Failed to build installable wheels for some pyproject.toml based projects (rasterio)
+
+Setup complete!
+To activate the environment: source satmae_env/bin/activate
+To run finetuning, update your command to use absolute paths:
+
+python main_finetune.py   --model_type group_c   --model vit_large_patch16   --dataset_type euro_sat   --train_path data_splits/eurosat_ms_train_10.txt   --test_path data_splits/eurosat_ms_val.txt   --finetune checkpoints/pretrain-vit-large-e199.pth   --input_size 96 --patch_size 8   --batch_size 8 --accum_iter 16   --epochs 30 --blr 2e-4   --weight_decay 0.05   --drop_path 0.2 --reprob 0.25 --mixup 0.8 --cutmix 1.0   --dropped_bands 0 9 10   --num_workers 4   --output_dir results/eurosat_ms_10   --log_dir results/eurosat_ms_10
+~

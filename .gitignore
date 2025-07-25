@@ -5,3 +5,5 @@ data/
 util/
 
 .ipynb_checkpoints/
+
+satmae_env/
