@@ -1,0 +1,16 @@
+python main_finetune.py \
+  --model_type group_c \
+  --model vit_large_patch16 \
+  --dataset_type euro_sat \
+  --train_path data_splits/eurosat_ms_train_10.txt \
+  --test_path data_splits/eurosat_ms_val.txt \
+  --finetune checkpoints/pretrain-vit-large-e199.pth \
+  --input_size 96 --patch_size 8 \
+  --batch_size 8 --accum_iter 16 \
+  --epochs 30 --blr 2e-4 \
+  --weight_decay 0.05 \
+  --drop_path 0.2 --reprob 0.25 --mixup 0.8 --cutmix 1.0 \
+  --dropped_bands 0 9 10 \
+  --num_workers 4 \
+  --output_dir results/eurosat_ms_10 \
+  --log_dir results/eurosat_ms_10
