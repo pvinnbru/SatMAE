@@ -31,13 +31,31 @@ run_training(data_percentage=10)
 ## 📋 What You Need
 
 1. **Pretrained Checkpoint**: Upload your `pretrain-vit-large-e199.pth` file
-2. **GPU Runtime**: Enable GPU in Colab settings
-3. **Time**: ~30-60 minutes for 10% data training
+2. **EuroSAT Dataset**: Either upload to Google Drive (recommended) or let it download automatically
+3. **GPU Runtime**: Enable GPU in Colab settings
+4. **Time**: ~30-60 minutes for 10% data training
+
+### 🚀 Google Drive Setup (Recommended)
+
+For faster downloads, upload your EuroSAT dataset to Google Drive:
+
+1. **Upload** `EuroSATallBands.zip` to Google Drive
+2. **Share**: Right-click → Share → "Anyone with the link"
+3. **Copy** the sharing URL: `https://drive.google.com/file/d/FILE_ID/view?usp=sharing`
+4. **Extract** the `FILE_ID` from the URL
+5. **Update** the notebook: Replace `YOUR_GOOGLE_DRIVE_FILE_ID` with your actual `FILE_ID`
+
+**Benefits:**
+- ⚡ 3-5x faster downloads
+- 🔄 More reliable connection
+- 📊 Better progress tracking
+- 🔗 Reusable across sessions
 
 ## 🔧 Features
 
-- ✅ Automatic package installation (timm, rasterio, wandb, tensorboard)
-- ✅ Automatic EuroSAT dataset download (~2.8GB)
+- ✅ Automatic package installation (timm, rasterio, wandb, tensorboard, gdown)
+- ✅ Google Drive integration for fast dataset downloads
+- ✅ Automatic EuroSAT dataset download and extraction
 - ✅ Automatic data preprocessing and splits
 - ✅ GPU memory optimization (adapts batch size to available memory)
 - ✅ TensorBoard integration for monitoring

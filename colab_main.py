@@ -33,7 +33,8 @@ def install_packages():
         "timm==0.3.2",
         "rasterio", 
         "wandb",
-        "tensorboard"
+        "tensorboard",
+        "gdown"  # For Google Drive downloads
     ]
     
     print("Installing required packages...")
@@ -42,18 +43,32 @@ def install_packages():
                       check=True)
     print("✅ All packages installed!")
 
-def download_dataset():
+def download_dataset(google_drive_id=None):
     """Download and extract EuroSAT dataset"""
     data_dir = Path("data")
     data_dir.mkdir(exist_ok=True)
     
-    eurosat_url = "https://madm.dfki.de/files/sentinel/EuroSATallBands.zip"
     eurosat_file = data_dir / "EuroSATallBands.zip"
     
     if not eurosat_file.exists():
-        print("Downloading EuroSAT dataset (this may take a few minutes)...")
-        urllib.request.urlretrieve(eurosat_url, eurosat_file)
-        print("✅ Download complete!")
+        if google_drive_id:
+            print("Downloading EuroSAT dataset from Google Drive...")
+            try:
+                import gdown
+                gdown.download(f"https://drive.google.com/uc?id={google_drive_id}", 
+                             str(eurosat_file), quiet=False)
+                print("✅ Google Drive download complete!")
+            except Exception as e:
+                print(f"❌ Google Drive download failed: {e}")
+                print("Falling back to original server...")
+                google_drive_id = None
+        
+        if not google_drive_id:
+            print("Downloading EuroSAT dataset from original server...")
+            print("This may take a few minutes (~2.8GB)...")
+            eurosat_url = "https://madm.dfki.de/files/sentinel/EuroSATallBands.zip"
+            urllib.request.urlretrieve(eurosat_url, eurosat_file)
+            print("✅ Download complete!")
         
         print("Extracting dataset...")
         with zipfile.ZipFile(eurosat_file, 'r') as zip_ref:
@@ -184,7 +199,20 @@ def main():
     install_packages()
     
     # Download data
-    download_dataset()
+    print("\n" + "="*50)
+    print("📊 DATASET SETUP")
+    print("="*50)
+    
+    # You can provide your Google Drive file ID here for faster downloads
+    google_drive_id = None  # Replace with your Google Drive file ID
+    # google_drive_id = "YOUR_GOOGLE_DRIVE_FILE_ID"  # Uncomment and set your ID
+    
+    if google_drive_id:
+        print("🚀 Using Google Drive for faster download!")
+    else:
+        print("📡 Using original server (slower but works)")
+    
+    download_dataset(google_drive_id)
     
     # Create data splits
     create_data_splits()
